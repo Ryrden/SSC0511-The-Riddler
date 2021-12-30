@@ -30,7 +30,7 @@ TelaInicial22:string "########################################"
 TelaEmbaixo0:string "########################################"
 TelaEmbaixo1:string "#                                      #"
 TelaEmbaixo2:string "#                                      #"
-TelaEmbaixo3:string "#       [SPACE] PARA CONTINUAR         #"
+TelaEmbaixo3:string "#       [ENTER] PARA CONTINUAR         #"
 TelaEmbaixo4:string "#                                      #"
 TelaEmbaixo5:string "#                                      #"
 TelaEmbaixo6:string "########################################"
@@ -214,19 +214,18 @@ SetimaCharada20:string "#                                      #"
 SetimaCharada21:string "#                                      #"
 SetimaCharada22:string "########################################"
 
-
 TelaFim0:string  "########################################"
-TelaFim1:string  "#     _   __    _  _  _  _  _          #"
-TelaFim2:string  "#    / \ /  |_||_||_)|_|| \|_|         #"
-TelaFim3:string  "#    \_/ \__| || || \| ||_/| |         #"
-TelaFim4:string  "#     __ _        _                    #"
-TelaFim5:string  "#    /__|_||\||_|/ \| |                #"
-TelaFim6:string  "#    \_|| || || |\_/|_|                #"
+TelaFim1:string  "#                                      #"
+TelaFim2:string  "#                                      #"
+TelaFim3:string  "#  O CHARADA GANHOU                    #"
+TelaFim4:string  "#                                      #"
+TelaFim5:string  "#                                      #"
+TelaFim6:string  "#                                      #"
 TelaFim7:string  "#                                      #"
 TelaFim8:string  "#                                      #"
-TelaFim9:string  "#    O /                               #"
-TelaFim10:string "#     (                                #"
-TelaFim11:string "#    O \                               #"
+TelaFim9:string  "#                                      #"
+TelaFim10:string "#                                      #"
+TelaFim11:string "#                                      #"
 TelaFim12:string "#                                      #"
 TelaFim13:string "#                                      #"
 TelaFim14:string "#                                      #"
@@ -270,9 +269,8 @@ main:
 	loadn r6, #7
 	call imprime_tela
 
-	call AguardaEspaco
+	call AguardaEnter
 	call IniciarJogo
-	
 	
 	halt
 
@@ -374,21 +372,40 @@ resposta_errada_fim:
 
 
 ; AGUARDA A RESPOSTA
+del_char:
+	push r1
+	
+	dec r0
+	dec r3
+	loadn r1, #0
+	outchar r1, r0	
+	
+	storei r3, r1
+	pop r1
+	jmp aguarda_resposta_loop
+
 aguarda_resposta:
 	push r0
 	push r1
 	push r2
 	push r3
+	push r4
 
-	loadn r0, #1054
-	loadn r2, #' '
-	load r3, Resposta
+	loadn r0, #1054 ; Posicao na tela
+	loadn r2, #13  ; Caractere de parada <enter>
+	loadn r4, #127 ;Codigo ascii da tecla <del>
+	load r3, Resposta ; buffer de resposta
 
 aguarda_resposta_loop:
 	call getchar
 	load r1, LetraInstrucao
+	
 	cmp r1, r2
 	jeq aguarda_resposta_fim
+	
+	cmp r1, r4
+	jeq del_char
+	
 	outchar r1, r0
 	storei r3, r1
 	inc r0
@@ -399,6 +416,8 @@ aguarda_resposta_loop:
 aguarda_resposta_fim:
 	loadn r0, #'\0'
 	storei r3, r0
+	
+	pop r4
 	pop r3
 	pop r2
 	pop r1
@@ -438,12 +457,12 @@ imprime_charada:
 
 ; Funcao aguardar espaco
 
-AguardaEspaco:
+AguardaEnter:
 	call getchar
 	load r0, LetraInstrucao
-	loadn r1, #' '
+	loadn r1, #13
 	cmp r0, r1
-	jne AguardaEspaco
+	jne AguardaEnter
 	rts
 
 
