@@ -967,7 +967,6 @@ upper_string:
 	push r1
 	push r2
 	push r3
-	push r4
 	push r5
 
 	loadn r2, #'\0' ; Caractere que indica o final da string
