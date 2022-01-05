@@ -23,7 +23,7 @@ TelaInicial16:string "#              ___                     #"
 TelaInicial17:string "#             q###r                    #"
 TelaInicial18:string "#              ##                      #"
 TelaInicial19:string "#                                      #"
-TelaInicial20:string "#        JOGO DO ENIGMA                #"
+TelaInicial20:string "#           THE RIDDLER                #"
 TelaInicial21:string "#                                      #"
 TelaInicial22:string "########################################"
 
@@ -392,18 +392,68 @@ SetimaCharadaDica20:string "#                                      #"
 SetimaCharadaDica21:string "#                                      #"
 SetimaCharadaDica22:string "########################################"
 
+
+OitavaCharada0:string  "########################################"
+OitavaCharada1:string  "#                                      #"
+OitavaCharada2:string  "#                                      #"
+OitavaCharada3:string  "#  SOU FOGO QUE ARDE SEM DOER          #"
+OitavaCharada4:string  "#                                      #"
+OitavaCharada5:string  "#  SOU FERIDA QUE DOI E NAO SE SENTE   #"
+OitavaCharada6:string  "#                                      #"
+OitavaCharada7:string  "#  SOU UM CONTENTAMENTO DESCONTENTE    #"
+OitavaCharada8:string  "#                                      #"
+OitavaCharada9:string  "#  SOU DOR QUE DESATINA SEM DOER       #"
+OitavaCharada10:string "#                                      #"
+OitavaCharada11:string "#  QUEM SOU?                           #"
+OitavaCharada12:string "#                                      #"
+OitavaCharada13:string "#                                      #"
+OitavaCharada14:string "#                                      #"
+OitavaCharada15:string "#                                      #"
+OitavaCharada16:string "#                                      #"
+OitavaCharada17:string "#  [9] -> MOSTRAR DICA                 #"
+OitavaCharada18:string "#                                      #"
+OitavaCharada19:string "#                                      #"
+OitavaCharada20:string "#                                      #"
+OitavaCharada21:string "#                                      #"
+OitavaCharada22:string "########################################"
+
+OitavaCharadaDica0:string  "########################################"
+OitavaCharadaDica1:string  "#                                      #"
+OitavaCharadaDica2:string  "#                                      #"
+OitavaCharadaDica3:string  "#    LUIS VAZ DE CAMOES - 1598         #"
+OitavaCharadaDica4:string  "#                                      #"
+OitavaCharadaDica5:string  "#                                      #"
+OitavaCharadaDica6:string  "#                                      #"
+OitavaCharadaDica7:string  "#                                      #"
+OitavaCharadaDica8:string  "#                                      #"
+OitavaCharadaDica9:string  "#                                      #"
+OitavaCharadaDica10:string "#                                      #"
+OitavaCharadaDica11:string "#                                      #"
+OitavaCharadaDica12:string "#                                      #"
+OitavaCharadaDica13:string "#                                      #"
+OitavaCharadaDica14:string "#                                      #"
+OitavaCharadaDica15:string "#                                      #"
+OitavaCharadaDica16:string "#                                      #"
+OitavaCharadaDica17:string "#    [8] -> MOSTRAR CHARADA ORIGINAL   #"
+OitavaCharadaDica18:string "#                                      #"
+OitavaCharadaDica19:string "#                                      #"
+OitavaCharadaDica20:string "#                                      #"
+OitavaCharadaDica21:string "#                                      #"
+OitavaCharadaDica22:string "########################################"
+
+
 TelaFim0:string  "########################################"
 TelaFim1:string  "#                                      #"
 TelaFim2:string  "#                                      #"
 TelaFim3:string  "#                                      #"
 TelaFim4:string  "#                                      #"
 TelaFim5:string  "#                                      #"
-TelaFim6:string  "#                                      #"
+TelaFim6:string  "#         Voce foi derrotado           #"
 TelaFim7:string  "#                                      #"
 TelaFim8:string  "#                                      #"
 TelaFim9:string  "#                                      #"
 TelaFim10:string "#                                      #"
-TelaFim11:string "#                                      #"
+TelaFim11:string "#      pelo GRANDE Edward Nygma!       #"
 TelaFim12:string "#                                      #"
 TelaFim13:string "#                                      #"
 TelaFim14:string "#                                      #"
@@ -415,13 +465,45 @@ TelaFim19:string "#                                      #"
 TelaFim20:string "#                                      #"
 TelaFim21:string "#                                      #"
 TelaFim22:string "#                                      #"
-TelaFim23:string "#                                      #"
+TelaFim23:string "#     Mas isso ja era esperado...      #"
 TelaFim24:string "#                                      #"
 TelaFim25:string "#                                      #"
 TelaFim26:string "#                                      #"
 TelaFim27:string "#                                      #"
 TelaFim28:string "#                                      #"
 TelaFim29:string "########################################"
+
+
+TelaVitoria0:string  "########################################"
+TelaVitoria1:string  "#                                      #"
+TelaVitoria2:string  "#                                      #"
+TelaVitoria3:string  "#                                      #"
+TelaVitoria4:string  "#                                      #"
+TelaVitoria5:string  "#                                      #"
+TelaVitoria6:string  "#            Voce...                   #"
+TelaVitoria7:string  "#                                      #"
+TelaVitoria8:string  "#                                      #"
+TelaVitoria9:string  "#                                      #"
+TelaVitoria10:string "#                                      #"
+TelaVitoria11:string "#                     ...venceu?       #"
+TelaVitoria12:string "#                                      #"
+TelaVitoria13:string "#                                      #"
+TelaVitoria14:string "#                                      #"
+TelaVitoria15:string "#                                      #"
+TelaVitoria16:string "#                                      #"
+TelaVitoria17:string "#                                      #"
+TelaVitoria18:string "#                                      #"
+TelaVitoria19:string "#                                      #"
+TelaVitoria20:string "#                                      #"
+TelaVitoria21:string "#                                      #"
+TelaVitoria22:string "#                                      #"
+TelaVitoria23:string "#                                      #"
+TelaVitoria24:string "#    Eh claro que venceu,              #"
+TelaVitoria25:string "#                                      #"
+TelaVitoria26:string "#           e-era o que eu queria...   #"
+TelaVitoria27:string "#                                      #"
+TelaVitoria28:string "#                                      #"
+TelaVitoria29:string "########################################"
 
 PrimeiraCharadaResposta: string "moeda"
 SegundaCharadaResposta:  string "folego"
@@ -430,6 +512,7 @@ QuartaCharadaResposta:   string "nada"
 QuintaCharadaResposta:   string "memoria"
 SextaCharadaResposta:    string "solidao"
 SetimaCharadaResposta:   string "sal"
+OitavaCharadaResposta:   string "amor"
 
 LetraInstrucao:var #1
 Resposta:var #40
@@ -455,6 +538,7 @@ main:
 
 	call AguardaEnter
 	call IniciarJogo
+	call resposta_correta_fim
 	
 	halt
 
@@ -504,6 +588,11 @@ IniciarJogo:
 	loadn r6, #SetimaCharadaDica0
 	call comecar_charada
 	
+	loadn r1, #OitavaCharada0
+	loadn r2, #OitavaCharadaResposta
+	loadn r6, #OitavaCharadaDica0
+	call comecar_charada
+	
 	pop r2
 	pop r1
 	rts
@@ -529,6 +618,15 @@ verifica_resposta:
 	push r5
 	
 	load r1, Resposta
+	
+	; A string digitada e a resposta
+	; sao convertidas para letras maiusculas fazendo com que o usuario se sinta livre para digitar com CapsLock ativo ou nao
+	load r0, Resposta
+	call upper_string
+	
+	loadi r0, r2
+	call upper_string
+	
 	call compara_strings
 	
 	load r1, RespostaCorreta
@@ -545,12 +643,30 @@ verifica_resposta:
 
 
 resposta_errada_fim:
+	push r0
 	push r1
 	push r2
-	push r0
 	
 	loadn r1, #TelaFim0
 	loadn r2, #2304
+	loadn r6, #30
+	loadn r0, #0
+	call imprime_tela
+	 
+	pop r2
+	pop r1
+	pop r0
+	
+	halt
+	
+	
+resposta_correta_fim:
+	push r0
+	push r1
+	push r2
+	
+	loadn r1, #TelaVitoria0
+	loadn r2, #512
 	loadn r6, #30
 	loadn r0, #0
 	call imprime_tela
@@ -787,7 +903,7 @@ compara_strings_loop:
 	inc r1
 	inc r2
 	jmp compara_strings_loop
-	
+
 
 compara_falso:
 	loadn r1, #0
@@ -809,7 +925,7 @@ compara_fim_loop:
 
 
 ; Imprime string
-imprime_string:
+imprime_string:  
 	push r0
 	push r1
 	push r2
@@ -835,5 +951,53 @@ imprime_string_fim:
 	pop r1
 	pop r0
 	rts
+
+
+; Converte todos os caracteres da string para maiusculo
+; r0 -> string
+upper_string:
+	push r1
+	push r2
+	push r3
+	push r4
+	push r5
+
+	loadn r2, #'\0'
+	loadn r3, #97
+	loadn r4, #122
+	loadn r5, #32
+
+upper_loop:
+	loadi r1, r0
+	
+	cmp r1, r2
+	jeq upper_done
+	
+	cmp r1, r3
+	jeg upper_continue
+	
+	add r1, r1, r5
+	storei r0, r1
+
+upper_continue:
+	inc r0
+	jmp upper_loop
+	
+upper_done:
+	pop r5
+	pop r4
+	pop r3
+	pop r2
+	pop r1
+	rts
+
+
+
+
+
+
+
+
+
 	
 	
