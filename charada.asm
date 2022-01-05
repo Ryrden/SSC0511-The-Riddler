@@ -1,8 +1,6 @@
+; THE RIDDLER
 
-; Tamanho da linha: 40
-; Tamanho da coluna: 30
-;
-
+; Banners utilizados
 TelaInicial0:string  "########################################"
 TelaInicial1:string  "#            ________                  #"
 TelaInicial2:string  "#        _jgN########Ngg_              #"
@@ -505,6 +503,7 @@ TelaVitoria27:string "#                                      #"
 TelaVitoria28:string "#                                      #"
 TelaVitoria29:string "########################################"
 
+; Respostas aos engimas
 PrimeiraCharadaResposta: string "moeda"
 SegundaCharadaResposta:  string "folego"
 TerceiraCharadaResposta: string "tempo"
@@ -514,11 +513,10 @@ SextaCharadaResposta:    string "solidao"
 SetimaCharadaResposta:   string "sal"
 OitavaCharadaResposta:   string "amor"
 
+; Variáveis utilizadas pelo programa
 LetraInstrucao:var #1
 Resposta:var #40
 RespostaCorreta: var #1
-
-
 CharadaAtual: var #1
 
 main:
@@ -535,6 +533,7 @@ main:
 	loadn r6, #7
 	call imprime_tela
 
+	; Aguarda o usuário apertar enter para começar
 	call AguardaEnter
 	call IniciarJogo
 	call resposta_correta_fim
@@ -544,7 +543,7 @@ main:
 
 
 
-; Iniciar Jogo
+; Função responsável por iniciar o jogo
 IniciarJogo:
 	push r1
 	push r2
@@ -553,8 +552,6 @@ IniciarJogo:
 	loadn r2, #PrimeiraCharadaResposta
 	loadn r6, #PrimeiraCharadaDica0
 	call comecar_charada
-	
-	; EXEMPLOS DE COMO USAR O PROGRAMA 
 	
 	loadn r1, #SegundaCharada0
 	loadn r2, #SegundaCharadaResposta
@@ -600,7 +597,8 @@ IniciarJogo:
 
 ; comecar_charada
 ; r1 -> Banner com a pergunta
-; r2 -> Resposta Correta
+; r2 -> Resposta correta
+; r6 -> Dica para a charada
 comecar_charada:
 	call imprime_charada
 	call aguarda_resposta
@@ -609,7 +607,7 @@ comecar_charada:
 
 
 
-; Verifica se a resposta ta correta
+; Verifica se a resposta é a correta
 verifica_resposta:
 	push r1
 	push r2
@@ -619,15 +617,18 @@ verifica_resposta:
 	load r1, Resposta
 	
 	; A string digitada e a resposta
-	; sao convertidas para letras maiusculas fazendo com que o usuario se sinta livre para digitar com CapsLock ativo ou nao
+	; são convertidas para letras maiúsculas o que torna as respostas case-insensitive
 	load r0, Resposta
 	call upper_string
 	
 	loadi r0, r2
 	call upper_string
 	
+	; Chama a função de comparação que armazena o resultado na variável <RespostaCorreta>
 	call compara_strings
 	
+	; Se a resposta estiver errada
+	; entao o programa finaliza
 	load r1, RespostaCorreta
 	loadn r2, #1
 	cmp r1, r2
@@ -641,6 +642,8 @@ verifica_resposta:
 	rts
 
 
+; Printa a tela de derrota do jogo
+; e faz um halt
 resposta_errada_fim:
 	push r0
 	push r1
@@ -659,6 +662,8 @@ resposta_errada_fim:
 	halt
 	
 	
+; Printa a tela de vitória do jogo
+; e faz um halt
 resposta_correta_fim:
 	push r0
 	push r1
@@ -677,8 +682,9 @@ resposta_correta_fim:
 	halt
 
 
-; AGUARDA A RESPOSTA
-
+; Printa a tela contendo a dica
+; da charada
+; r6 -> dica para ser printada
 mostra_dica:
 	push r1
 	
@@ -686,9 +692,12 @@ mostra_dica:
 	call imprime_charada
 	
 	pop r1
+	
+	; É necessário apagar um caracter pois o usuário para mostrar a dica deve apertar <9>.
 	jmp del_char
 
-
+; Printa a charada referenciada na variável <CharadaAtual>
+; e deleta um caractere pelo mesmo motivo: o usuário aperta <8> para voltar para a charada.
 mostra_charada:
 	load r1, CharadaAtual
 	call imprime_charada
@@ -699,8 +708,8 @@ mostra_charada:
 del_char:
 	push r1
 	
-	; Limita ate onde o cursor pode ir apagando as teclas anteriores
-	; Nesse caso, na posicao 1054
+	; Limita até onde o cursor pode ir apagando as teclas anteriores.
+	; Nesse caso, na posição 1054
 	loadn r1, #1054
 	cmp r1, r0
 	jeq del_char_fim
@@ -710,6 +719,7 @@ del_char:
 	loadn r1, #0
 	outchar r1, r0	
 	
+	; Atualiza a variável <Resposta> para colocar zero no lugar do caractere apagado.
 	storei r3, r1
 	
 del_char_fim:
@@ -726,13 +736,13 @@ aguarda_resposta:
 	push r6
 	push r7
 
-	loadn r0, #1054   ; Posicao na tela
-	loadn r2, #13     ; Caractere de parada <enter>
-	loadn r4, #08     ; Codigo ascii da tecla <BackSpace>. O codigo do simulador foi alterado para identificar a tecla backspace
-	loadn r5, #'9'
-	loadn r7, #'8'
+	loadn r0, #1054   ; Posição na tela
+	loadn r2, #13     ; Caractere de parada <Enter>
+	loadn r4, #08     ; Código ascii da tecla <BackSpace>. O código do simulador foi alterado para identificar a tecla <BackSpace>
+	loadn r5, #'9'    ; Tecla para mostrar a tela de dica
+	loadn r7, #'8'	  ; Tecla para voltar para a charada original
 	load r3, Resposta ; buffer de resposta
-	store CharadaAtual, r1
+	store CharadaAtual, r1 ; Variável que guarda a charada atual
 
 aguarda_resposta_loop:
 	call getchar
@@ -773,7 +783,7 @@ aguarda_resposta_fim:
 
 ; IMPRIME CHARADA
 ; r1 -> InicioDaCharad0
-; tamanho padrao -> 23
+; tamanho padrao -> 23 linhas
 ; cor padrao -> verde -> 512
 
 imprime_charada:
@@ -782,15 +792,15 @@ imprime_charada:
 	push r2
 	push r6
 	
-	loadn r0, #0
-	loadn r2, #512
-	loadn r6, #23
+	loadn r0, #0    ; Posição na tela que começa a impressão (em linhas)
+	loadn r2, #512  ; Cor
+	loadn r6, #23   ; Número de linhas que o desenho ocupa.
 	call imprime_tela
 
-	loadn r0, #23
-	loadn r1, #RespostaBanner0
-	loadn r2, #1280
-	loadn r6, #7
+	loadn r0, #23   ; Posição na tela que começa a impressão (em linhas)
+	loadn r1, #RespostaBanner0 ; Área em que o usuário digita a resposta
+	loadn r2, #1280 ; Cor
+	loadn r6, #7    ; Número de linhas que o desenho ocupa.
 	call imprime_tela
 	
 	pop r6
@@ -802,8 +812,7 @@ imprime_charada:
 
 
 
-; Aguarda a tecla enter ser pressionada
-; para iniciar o jogo
+; Aguarda a tecla <Enter> ser pressionada
 AguardaEnter:
 	call getchar
 	load r0, LetraInstrucao
@@ -816,8 +825,9 @@ AguardaEnter:
 
 
 
-; Funcoes auxiliares
-
+; - - - Funcoes auxiliares - - - 
+; Lê uma letra do teclado e joga na
+; variável <LetraInstrucao>
 getchar:
 	push r0
 	push r1
@@ -835,12 +845,11 @@ getchar_fim:
 	rts
 
 
-; - - - - Funcao imprime tela - - - -
-;	r0 -> linha onde o desenho comeca na tela	
-;	r1 -> ponteiro do inicio do desenho
+; Função imprime tela
+;	r0 -> linha onde o desenho começa na tela	
+;	r1 -> ponteiro do início do desenho
 ;	r2 -> cor do desenho
-;	r6 -> numero de linhas que o desenho usa
-;
+;	r6 -> número de linhas que o desenho ocupa
 
 imprime_tela:
 	push r0
@@ -878,7 +887,7 @@ imprime_tela_fim:
 ; Compara strings
 ; r1 -> string1
 ; r2 -> string2
-
+; O resultado é armazenado na variável <RespostaCorreta>
 compara_strings:
 	push r1
 	push r2
@@ -952,7 +961,7 @@ imprime_string_fim:
 	rts
 
 
-; Converte todos os caracteres da string para maiusculo
+; Converte todos os caracteres da string para maiúsculo
 ; r0 -> string
 upper_string:
 	push r1
@@ -961,10 +970,9 @@ upper_string:
 	push r4
 	push r5
 
-	loadn r2, #'\0'
-	loadn r3, #97
-	loadn r4, #122
-	loadn r5, #32
+	loadn r2, #'\0' ; Caractere que indica o final da string
+	loadn r3, #97   ; Primeiro caractere na tabela ascii de letras maiúsculas
+	loadn r5, #32	; Diferença entre os caracteres de letra minúscula e maiúscula
 
 upper_loop:
 	loadi r1, r0
@@ -972,9 +980,11 @@ upper_loop:
 	cmp r1, r2
 	jeq upper_done
 	
+	; Se o caractere for maior ou igual a 97 entao não é necessário somar
 	cmp r1, r3
 	jeg upper_continue
 	
+	; Se o caractere estiver abaixo, então a conversão é feita
 	add r1, r1, r5
 	storei r0, r1
 
@@ -984,7 +994,6 @@ upper_continue:
 	
 upper_done:
 	pop r5
-	pop r4
 	pop r3
 	pop r2
 	pop r1
