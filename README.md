@@ -21,3 +21,9 @@ Notas sobre a implementação:
   - Foi necessário editar o código do simulador, particularmente o arquivo do controlador <i><b>Controller.cpp</b></i>, e adicionar a tecla BackSpace para que fosse identificada corretamente com o código ascii 08.
  
 Link do vídeo de apresentação:
+
+# Screenshots
+
+Tela Inicial
+
+![Screenshot from 2022-01-05 18-53-56](https://user-images.githubusercontent.com/92992424/148295143-e602400a-b2f9-4ac7-9de3-af055a4165e5.png)
