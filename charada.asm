@@ -517,7 +517,6 @@ OitavaCharadaResposta:   string "amor"
 LetraInstrucao:var #1
 Resposta:var #40
 RespostaCorreta: var #1
-DONE: string "Done."
 
 
 CharadaAtual: var #1
