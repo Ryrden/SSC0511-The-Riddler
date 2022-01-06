@@ -1,4 +1,4 @@
-# SSC0511-GameProject
+# SSC0511 - Projeto de jogo em Assembly
 SSC0511 - Organização de Computadores Digitais
 
 Professor: Eduardo do Valle Simões
