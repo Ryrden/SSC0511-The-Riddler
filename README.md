@@ -13,8 +13,8 @@ Laboratório de Computação Reconfigurável
 
 # The Riddler
 
-Descrição : O nome do jogo faz referência ao inimigo do batman Edward Nygma, mais conhecido por <b>Charada</b>. 
-O jogo consiste em 8 enigmas que exigem uma resposta de apenas <b>uma</b> palavra. Cada enigma contém uma dica para resolve-lo. Alguns dos enigmas foram tirados da série Arkham e outros criados por nós mesmos. Todas as dicas foram criadas pelo grupo.
+Descrição : O nome do jogo faz referência ao inimigo do Batman Edward Nygma, mais conhecido por <b>Charada</b>. 
+O jogo consiste em 8 enigmas que exigem uma resposta de apenas <b>uma</b> palavra. Cada enigma contém uma dica para resolvê-lo. Alguns dos enigmas foram tirados da série Arkham e outros criados por nós mesmos. Todas as dicas foram criadas pelo grupo.
 
 Notas sobre a implementação:
   - O jogo implementa um buffer livre para a resposta, ou seja, o usuário pode digitar a palavra e o programa fará a validação se a resposta está correta.
@@ -24,6 +24,11 @@ Link do vídeo de apresentação:
 
 # Screenshots
 
-Tela Inicial
+### Tela Inicial
+<img src='https://user-images.githubusercontent.com/45838334/148437455-4ac590ae-1044-4059-aa81-fd4152793a02.png' height='375'>
 
-![Screenshot from 2022-01-05 18-53-56](https://user-images.githubusercontent.com/92992424/148295143-e602400a-b2f9-4ac7-9de3-af055a4165e5.png)
+### Primeira charada
+<img src='https://user-images.githubusercontent.com/45838334/148437029-1ca6dedb-248b-4a34-ad60-32976340b00c.png' height='375'>
+
+### Tela de Game Over
+<img src='https://user-images.githubusercontent.com/45838334/148437146-a76405bc-19f7-40c3-9ee3-ed4e08bdd364.png' height='375'>
